@@ -1,0 +1,35 @@
+{
+  "bundleName": "@itentialopensource/use-case-1",
+  "version": "0.0.1",
+  "fingerprint": "6171ad372d24dc007b90f3f6",
+  "createdEpoch": "1634839863584",
+  "artifacts": [
+    {
+      "id": "use case1",
+      "name": "use case1",
+      "type": "ac-agenda-job",
+      "location": "/bundles/ac_agenda_jobs/use case1.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "test",
+      "name": "test",
+      "type": "workflow",
+      "location": "/bundles/workflows/test.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "test1",
+      "name": "test1",
+      "type": "json-forms",
+      "location": "/bundles/json_forms/test1.json",
+      "properties": {
+        "entryPoint": false
+      }
+    }
+  ]
+}
