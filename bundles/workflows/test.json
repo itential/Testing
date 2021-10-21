@@ -1,0 +1,211 @@
+{
+  "name": "test",
+  "type": "automation",
+  "tasks": {
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 0.2913907284768212,
+      "y": 0.5636147443519619
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 0.91280353200883,
+      "y": 0.6373365041617123
+    },
+    "9d0b": {
+      "name": "getReposOwnerRepoContentsPath",
+      "canvasName": "getReposOwnerRepoContentsPath",
+      "summary": "Get contents.\nThis method returns the contents of a file or directory in a repository.\nFiles and symlinks support a custom media type for getting the raw content.\nDirectories and submodules do not support custom media types.\nNote: This API supports files up to 1 megabyte in size.\nHere can be many outcomes. For details see \"http://developer.github.com/v3/repos/contents/\"",
+      "description": "Get contents.\nThis method returns the contents of a file or directory in a repository.\nFiles and symlinks support a custom media type for getting the raw content.\nDirectories and submodules do not support custom media types.\nNote: This API supports files up to 1 megabyte in size.\nHere can be many outcomes. For details see \"http://developer.github.com/v3/repos/contents/\"",
+      "location": "Adapter",
+      "locationType": "GitHub",
+      "app": "GitHub",
+      "type": "automatic",
+      "displayName": "GitHub",
+      "variables": {
+        "incoming": {
+          "owner": "itential",
+          "repo": "Testing",
+          "pathParam": "artifact.json",
+          "pathParamQuery": "",
+          "ref": "",
+          "adapter_id": "adapter-github"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>getReposOwnerRepoConten</span>tsPath"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.5988041082730561,
+      "y": 0.6002386634844868,
+      "scheduled": false
+    },
+    "c817": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Query Data Using 'json-query' Format",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "response.content",
+          "obj": "$var.9d0b.result"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>query</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Query</span> Data Using 'json-query' Format"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Query</span> data using a dot/bracket notation string and a matching key/value pair."
+        }
+      ],
+      "groups": [],
+      "x": 0.7875226039783002,
+      "y": 0.7458233890214797,
+      "scheduled": false
+    },
+    "cc41": {
+      "name": "parse",
+      "canvasName": "parse",
+      "summary": "Parses a string to create an object.",
+      "description": "Parses a JSON string, constructing the JavaScript value or object described by the string.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "String",
+      "variables": {
+        "incoming": {
+          "text": "$var.c817.return_data"
+        },
+        "outgoing": {
+          "textObject": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "summary",
+          "highlightString": "Parses a string to create an <span class='highlight-string'>object</span>."
+        },
+        {
+          "key": "description",
+          "highlightString": "Parses a JSON string, constructing the JavaScript value or <span class='highlight-string'>object</span> described by the string."
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.8779385171790235,
+      "y": 0.850835322195704,
+      "scheduled": false
+    }
+  },
+  "transitions": {
+    "303": {},
+    "1248": {},
+    "5325": {},
+    "workflow_start": {
+      "9d0b": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "9b7c": {},
+    "92b3": {},
+    "f87e": {},
+    "7ecb": {},
+    "f32": {},
+    "4ef0": {},
+    "20b2": {},
+    "1e21": {},
+    "9ca4": {},
+    "25c0": {},
+    "a6a5": {},
+    "e5f7": {},
+    "16d9": {},
+    "9d0b": {
+      "c817": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "c817": {
+      "cc41": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "cc41": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    }
+  },
+  "font_size": 12,
+  "last_updated": "2021-10-15T18:43:24.451Z",
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false,
+    "email": ""
+  },
+  "lastUpdatedVersion": "5.29.14-2020.2.47.0",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      }
+    }
+  },
+  "created": "2021-09-10T18:16:06.140Z",
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false,
+    "email": ""
+  },
+  "createdVersion": "5.29.14-2020.2.47.0",
+  "tags": [],
+  "groups": []
+}
